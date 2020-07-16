@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> A simple virtual machine created for educational porposes
+> A simple stack-based virtual machine created for educational porposes
 
 ### 🏠 [Homepage](https://github.com/Wilgnne/simple-vm)
 
