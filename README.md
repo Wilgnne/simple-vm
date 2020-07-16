@@ -3,8 +3,8 @@
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <a href="https://twitter.com/https:\/\/twitter.com\/WilgnneK" target="_blank">
-    <img alt="Twitter: https:\/\/twitter.com\/WilgnneK" src="https://img.shields.io/twitter/follow/https:\/\/twitter.com\/WilgnneK.svg?style=social" />
+  <a href="https://twitter.com/WilgnneK" target="_blank">
+    <img alt="Twitter: WilgnneK" src="https://img.shields.io/twitter/follow/WilgnneK.svg?style=social" />
   </a>
 </p>
 
@@ -29,9 +29,9 @@ gcc
 👤 **Wilgnne Khawan**
 
 * Website: https://wilgnne.github.io/
-* Twitter: [@https:\/\/twitter.com\/WilgnneK](https://twitter.com/https:\/\/twitter.com\/WilgnneK)
+* Twitter: [@WilgnneK](https://twitter.com/WilgnneK)
 * Github: [@Wilgnne](https://github.com/Wilgnne)
-* LinkedIn: [@https:\/\/www.linkedin.com\/in\/wilgnne\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/wilgnne\/)
+* LinkedIn: [@wilgnne](https://linkedin.com/in/wilgnne)
 
 ## 🤝 Contributing
 
