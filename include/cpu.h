@@ -7,13 +7,8 @@ typedef enum
     HLT
 } InstructionSet;
 
-const int program[] = {
-    PSH, 5,
-    PSH, 6,
-    ADD,
-    POP,
-    HLT};
+extern int program[];
 
-int ip = 0;
+extern int ip;
 
 int fetch();
