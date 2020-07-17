@@ -1,6 +1,11 @@
 #include <stdbool.h>
 
 #include <cpu.h>
+#include <stack.h>
+#include <instr.h>
+
+int ip = 0;
+int sp = -1;
 
 int program[] = {
     PSH, 5,
@@ -9,7 +14,6 @@ int program[] = {
     POP,
     HLT};
 
-int ip = 0;
 bool running = true;
 
 int fetch()
@@ -32,11 +36,8 @@ void eval(int instr)
 
 int cpu()
 {
-    int instr;
-
     while (running)
     {
-        instr = fetch();
-        eval(instr);
+        eval(fetch());
     }
 }
