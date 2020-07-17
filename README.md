@@ -23,16 +23,17 @@ SET A 0     ; sets register A to 0
 HLT         ; stop the program
 ```
 
-## Install
+## Requirements
 
-```sh
-gcc
-```
+You'll need a few bits of software to compile the VM:
+
+- clang, gcc, - some C compiler
+- make - GNU make
 
 ## Usage
 
 ```sh
-gcc
+make all && ./ss-vm.out
 ```
 
 ## Author
