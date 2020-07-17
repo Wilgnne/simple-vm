@@ -38,6 +38,14 @@ void eval(int instr)
         printf("popped: %d\n", stack[sp--]);
         break;
 
+    case ADD:
+    {
+        int a = stack[sp--];
+        int b = stack[sp--];
+        stack[++sp] = a + b;
+        break;
+    }
+
     default:
         break;
     }
