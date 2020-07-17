@@ -17,6 +17,19 @@ int fetch()
     return program[ip++];
 }
 
+void eval(int instr)
+{
+    switch (instr)
+    {
+    case HLT:
+        running = false;
+        break;
+    
+    default:
+        break;
+    }
+}
+
 int cpu()
 {
     int instr;
@@ -24,7 +37,6 @@ int cpu()
     while (running)
     {
         instr = fetch();
-        if (instr == HLT)
-            running = false;
+        eval(instr);
     }
 }
