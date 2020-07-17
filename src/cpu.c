@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdbool.h>
 
 #include <cpu.h>
@@ -31,6 +32,10 @@ void eval(int instr)
 
     case PSH:
         stack[++sp] = program[ip++];
+        break;
+
+    case POP:
+        printf("popped: %d\n", stack[sp--]);
         break;
 
     default:
