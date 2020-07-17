@@ -5,8 +5,10 @@
 #include <stack.h>
 #include <instr.h>
 
-int ip = 0;
-int sp = -1;
+
+
+int registers[NUM_OF_REGISTERS];
+int *sp = &registers[SP];
 
 int program[] = {
     PSH, 5,
@@ -19,7 +21,7 @@ bool running = true;
 
 int fetch()
 {
-    return program[ip++];
+    return program[registers[PC]++];
 }
 
 void eval(int instr)
@@ -31,18 +33,18 @@ void eval(int instr)
         break;
 
     case PSH:
-        stack[++sp] = program[ip++];
+        stack[++registers[SP]] = program[registers[PC]++];
         break;
 
     case POP:
-        printf("popped: %d\n", stack[sp--]);
+        printf("popped: %d\n", stack[registers[SP]--]);
         break;
 
     case ADD:
     {
-        int a = stack[sp--];
-        int b = stack[sp--];
-        stack[++sp] = a + b;
+        int a = stack[registers[SP]--];
+        int b = stack[registers[SP]--];
+        stack[++registers[SP]] = a + b;
         break;
     }
 
@@ -54,6 +56,8 @@ void eval(int instr)
 
 int cpu()
 {
+    registers[PC] = 0;
+    registers[SP] = -1;
     debugStack();
     while (running)
     {

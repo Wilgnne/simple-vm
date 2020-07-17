@@ -1,5 +1,5 @@
 extern int stack[];
 
-extern int sp;
+extern int *sp;
 
 void debugStack();

@@ -8,12 +8,12 @@ void debugStack()
 {
     int i;
     printf("Stack: [");
-    for (i = 0; i <= sp; i++)
+    for (i = 0; i <= *sp; i++)
     {
-        if (i == sp)
+        if (i == *sp)
             printf("%i", stack[i]);
         else
             printf("%i, ", stack[i]);
     }
-    printf("]\t\tsp: %i\n", sp);
+    printf("]\t\tsp: %i\n", *sp);
 }
