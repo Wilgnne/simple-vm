@@ -12,3 +12,5 @@ extern int program[];
 extern int ip;
 
 int fetch();
+
+int cpu();
