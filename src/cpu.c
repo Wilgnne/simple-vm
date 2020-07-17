@@ -28,7 +28,11 @@ void eval(int instr)
     case HLT:
         running = false;
         break;
-    
+
+    case PSH:
+        stack[++sp] = program[ip++];
+        break;
+
     default:
         break;
     }
