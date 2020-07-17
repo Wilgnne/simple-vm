@@ -36,10 +36,12 @@ void eval(int instr)
     default:
         break;
     }
+    debugStack();
 }
 
 int cpu()
 {
+    debugStack();
     while (running)
     {
         eval(fetch());
