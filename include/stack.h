@@ -1,3 +1,5 @@
-extern int stack[256];
+extern int stack[];
 
 extern int sp;
+
+void debugStack();
