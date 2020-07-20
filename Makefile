@@ -39,4 +39,4 @@ $(OBJ_DIR)/%.o: $(SRC)/%.c
 
 $(COMPILE_OBJ_DIR)/%.o: $(COMPILE_SRC)/%.c
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I$(COMPILE_SRC) -I$(COMPILE_HEAD) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(COMPILE_SRC) -I$(COMPILE_HEAD) -I$(HEAD) -c $< -o $@
