@@ -1,16 +1,16 @@
-<h1 align="center">Welcome to simple-vm 👋</h1>
+<h1 align="center">Welcome to stack-vm 👋</h1>
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
   <a href="https://twitter.com/WilgnneK" target="_blank">
-    <img alt="Twitter: WilgnneK" src="https://img.shields.io/twitter/follow/WilgnneK.svg?style=social" />
+    <img alt="Twitter: WilgnneK" src="http://img.shields.io/badge/-@WilgnneK-1ca0f1?style=social&logo=twitter&logoColor=blue&link=https://twitter.com/WilgnneK" />
   </a>
 </p>
 
 > A simple stack-based virtual machine created for educational porposes
 
-### 🏠 [Homepage](https://github.com/Wilgnne/simple-vm)
+### 🏠 [Homepage](https://github.com/Wilgnne/stack-vm)
 
 ### The Instruction Set
 
@@ -19,7 +19,6 @@ PSH 5       ; pushes 5 to the stack
 PSH 10      ; pushes 10 to the stack
 ADD         ; pops two values on top of the stack, adds them pushes to stack
 POP         ; pops the value on the stack, will also print it for debugging
-SET A 0     ; sets register A to 0
 HLT         ; stop the program
 ```
 
