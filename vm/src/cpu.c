@@ -5,8 +5,6 @@
 #include <stack.h>
 #include <instr.h>
 
-
-
 int registers[NUM_OF_REGISTERS];
 int *sp = &registers[SP];
 
