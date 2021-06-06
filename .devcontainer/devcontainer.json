@@ -18,7 +18,8 @@
 		"ms-vscode.cpptools",
 		"editorconfig.editorconfig",
 		"eamodio.gitlens",
-		"mhutchie.git-graph"
+		"mhutchie.git-graph",
+		"mike-lischke.vscode-antlr4"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

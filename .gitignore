@@ -4,6 +4,8 @@ bin/
 # build folder
 build/
 
+.antlr
+
 # Prerequisites
 *.d
 
