@@ -32,7 +32,7 @@ You'll need a few bits of software to compile the VM:
 ## Usage
 
 ```sh
-make all && ./ss-vm.out
+make all && ./bin/ss-vm
 ```
 
 ## Author
