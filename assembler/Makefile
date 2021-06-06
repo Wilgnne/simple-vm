@@ -26,7 +26,7 @@ all:
 assembler: $(OBJECTS) $(HEADERS)
 	@echo building the assembler
 	@echo $(OBJECTS)
-	$(CC) -o $(PROJ_NAME) $(OBJECTS) -lantlr4-runtime
+	$(CC) -o $(PROJ_NAME) $(OBJECTS) /usr/lib/x86_64-linux-gnu/libantlr4-runtime.a
 
 antlr:
 	@echo building antlr4 grammar
