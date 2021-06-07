@@ -12,7 +12,8 @@
 class  StackLexer : public antlr4::Lexer {
 public:
   enum {
-    PLUS = 1, TIMES = 2, OP_PAR = 3, CL_PAR = 4, NUMBER = 5, SPACE = 6
+    COMMENT = 1, SPACE = 2, CODE = 3, END_CODE = 4, DATA = 5, END_DATA = 6, 
+    PUSH_UC = 7, ADD_UC = 8, POP_UC = 9, HLT_UC = 10, NUMBER = 11
   };
 
   StackLexer(antlr4::CharStream *input);

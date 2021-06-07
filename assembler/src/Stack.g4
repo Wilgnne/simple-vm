@@ -2,80 +2,48 @@ grammar Stack;
 
 /*---------------- PARSER INTERNALS ----------------*/
 
-@parser::header
-{
-    #include <iostream>
-    using namespace std;
+@parser::definitions {
+#include "instr.h"
 }
 
-@parser::members
-{
+@parser::header {
+#include <iostream>
+#include <string>
+
+using namespace std;
+}
+
+@parser::members {
 }
 
 /*---------------- LEXER RULES ----------------*/
 
-PLUS  : '+' ;
-TIMES : '*' ;
-OP_PAR: '(' ;
-CL_PAR: ')' ;
+COMMENT: ';' ~('\n')* -> skip;
+SPACE: (' ' | '\t' | '\r' | '\n')+ -> skip;
 
-NUMBER: '0'..'9'+ ;
+CODE: '.code';
+END_CODE: '.endcode';
 
-SPACE : (' '|'\t'|'\r'|'\n')+ -> skip ;
+DATA: '.data';
+END_DATA: '.enddata';
+
+PUSH_UC: 'psh';
+ADD_UC: 'add';
+POP_UC: 'pop';
+HLT_UC: 'hlt';
+
+NUMBER: '0' ..'9'+;
 
 /*---------------- PARSER RULES ----------------*/
 
-program:
-    {
-        cout << ".source Test.src\n";
-        cout << ".class  public Test\n";
-        cout << ".super  java/lang/Object\n\n";
-        cout << ".method public <init>()V\n";
-        cout << "    aload_0\n";
-        cout << "    invokenonvirtual java/lang/Object/<init>()V\n";
-        cout << "    return\n";
-        cout << ".end method\n\n";
-    }
-    main ;
+program: data? code;
 
-main:
-    {
-        cout << ".method public static main([Ljava/lang/String;)V\n\n";
-        cout << "    getstatic java/lang/System/out Ljava/io/PrintStream;\n";
-    }
-    expression
-    {
-        cout << "    invokevirtual java/io/PrintStream/println(I)V\n\n";
-        cout << "    return\n";
-        cout << ".limit stack 10\n";
-        cout << ".end method\n";
-        // cout << "\n; symbol_table: ";
-        // for (vector<string>::const_iterator i = symbol_table.begin(); i != symbol_table.end(); i++) {
-        //     cout << *i << ' ';
-        // }
-        // cout << "\n";
-    }
-    ;
+data: DATA END_DATA;
 
-expression:
-    term ( op = PLUS expression
-    {
-        cout << "    iadd\n";
-    }
-    )? ;
+code: CODE (instr)* END_CODE;
 
-term:
-    factor ( op = TIMES term
-    {
-        cout << "    imul\n";
-    }
-    )? ;
-
-factor:
-    NUMBER
-    {
-        cout << "    ldc " << $NUMBER.text << "\n";
-        // symbol_table.push_back($NUMBER.text);
-    }
-    | OP_PAR expression CL_PAR ;
-
+instr:
+	PUSH_UC NUMBER { cout.put(PSH).put(stoi($NUMBER.text)); }
+	| ADD_UC { cout.put(ADD); }
+	| POP_UC { cout.put(POP); }
+	| HLT_UC { cout.put(HLT); };

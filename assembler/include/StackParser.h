@@ -1,8 +1,8 @@
 
-    #include <iostream>
-    // #include <vector>
+#include <iostream>
+#include <string>
 
-    using namespace std;
+using namespace std;
 
 
 // Generated from src/Stack.g4 by ANTLR 4.7.2
@@ -18,11 +18,12 @@
 class  StackParser : public antlr4::Parser {
 public:
   enum {
-    PLUS = 1, TIMES = 2, OP_PAR = 3, CL_PAR = 4, NUMBER = 5, SPACE = 6
+    COMMENT = 1, SPACE = 2, CODE = 3, END_CODE = 4, DATA = 5, END_DATA = 6, 
+    PUSH_UC = 7, ADD_UC = 8, POP_UC = 9, HLT_UC = 10, NUMBER = 11
   };
 
   enum {
-    RuleProgram = 0, RuleMain = 1, RuleExpression = 2, RuleTerm = 3, RuleFactor = 4
+    RuleProgram = 0, RuleData = 1, RuleCode = 2, RuleInstr = 3
   };
 
   StackParser(antlr4::TokenStream *input);
@@ -35,79 +36,66 @@ public:
   virtual antlr4::dfa::Vocabulary& getVocabulary() const override;
 
 
-      // vector<string> symbol_table;
 
 
   class ProgramContext;
-  class MainContext;
-  class ExpressionContext;
-  class TermContext;
-  class FactorContext; 
+  class DataContext;
+  class CodeContext;
+  class InstrContext; 
 
   class  ProgramContext : public antlr4::ParserRuleContext {
   public:
     ProgramContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    MainContext *main();
+    CodeContext *code();
+    DataContext *data();
 
    
   };
 
   ProgramContext* program();
 
-  class  MainContext : public antlr4::ParserRuleContext {
+  class  DataContext : public antlr4::ParserRuleContext {
   public:
-    MainContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    DataContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    ExpressionContext *expression();
+    antlr4::tree::TerminalNode *DATA();
+    antlr4::tree::TerminalNode *END_DATA();
 
    
   };
 
-  MainContext* main();
+  DataContext* data();
 
-  class  ExpressionContext : public antlr4::ParserRuleContext {
+  class  CodeContext : public antlr4::ParserRuleContext {
   public:
-    antlr4::Token *op = nullptr;;
-    ExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    CodeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    TermContext *term();
-    ExpressionContext *expression();
-    antlr4::tree::TerminalNode *PLUS();
+    antlr4::tree::TerminalNode *CODE();
+    antlr4::tree::TerminalNode *END_CODE();
+    std::vector<InstrContext *> instr();
+    InstrContext* instr(size_t i);
 
    
   };
 
-  ExpressionContext* expression();
+  CodeContext* code();
 
-  class  TermContext : public antlr4::ParserRuleContext {
-  public:
-    antlr4::Token *op = nullptr;;
-    TermContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FactorContext *factor();
-    TermContext *term();
-    antlr4::tree::TerminalNode *TIMES();
-
-   
-  };
-
-  TermContext* term();
-
-  class  FactorContext : public antlr4::ParserRuleContext {
+  class  InstrContext : public antlr4::ParserRuleContext {
   public:
     antlr4::Token *numberToken = nullptr;;
-    FactorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    InstrContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *PUSH_UC();
     antlr4::tree::TerminalNode *NUMBER();
-    antlr4::tree::TerminalNode *OP_PAR();
-    ExpressionContext *expression();
-    antlr4::tree::TerminalNode *CL_PAR();
+    antlr4::tree::TerminalNode *ADD_UC();
+    antlr4::tree::TerminalNode *POP_UC();
+    antlr4::tree::TerminalNode *HLT_UC();
 
    
   };
 
-  FactorContext* factor();
+  InstrContext* instr();
 
 
 private:
