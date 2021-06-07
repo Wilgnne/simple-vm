@@ -15,7 +15,7 @@ SOURCES = $(wildcard $(SRC)/*.cpp) $(wildcard $(SRC)/**/*.cpp)
 
 OBJECTS = $(patsubst $(SRC)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
-HEADERS = $(wildcard $(HEAD)/*.h)
+HEADERS = $(wildcard $(HEAD)/*.h) $(wildcard $(GLOBAL_HEAD)/*.h)
 
 PROJ_NAME = $(BIN_DIR)/ss-asm
 
@@ -36,7 +36,7 @@ antlr:
 
 $(OBJ_DIR)/%.o: $(SRC)/%.cpp
 	@mkdir -p $(@D)
-	$(CC) $(CC_FLAGS) -I$(SRC) -I$(HEAD) -c $< -o $@ $(CC_LIBS)
+	$(CC) $(CC_FLAGS) -I$(SRC) -I$(HEAD) -I$(GLOBAL_HEAD) -c $< -o $@ $(CC_LIBS)
 
 .PHONY: clean
 clean:
